@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
+    <title>Stat visualization</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        
+        <div class="container">
+                <h1>งบประมาณจังหวัดราชบุรี</h1>
+            <canvas id="second-chart" width="100" height="50"></canvas>
+        </div>
+    
+    <div class="container">
+            <h1>งบประมาณรวม 15 ปี</h1>
+        <canvas id="myChart" width="70" height="50"></canvas>
+    </div>
+
+    <div class="container">
+            <h1>อัตราส่วนงบประมาณ 15 ปี</h1>
+            <canvas id="third-chart" width="120" height="60"></canvas>
+        </div>
+
+</div>
+
+
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม', 'กระทรวงยุติธรรม', 'กระทรวงสาธารณสุข',
+                    'กระทรวงเกษตรและสหกรณ์', 'กระทรวงคมนาคม', 'กระทรวงศึกษาธิการ', 'กระทรวงมหาดไทย'
+                ],
+                datasets: [{
+                    label: 'งบประมาณรวม 15 ปี',
+                    data: [2022652851, 2036154691, 3005761424, 4018618356, 6199098733, 7623201059,
+                        11233919475
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+        var ctx2 = document.getElementById('second-chart').getContext('2d');
+        var secondChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: [2547,
+                    2548,
+                    2549,
+                    2550,
+                    2551,
+                    2552,
+                    2553,
+                    2554,
+                    2555,
+                    2556,
+                    2557,
+                    2558,
+                    2559,
+                    2560,
+                    2561
+                ],
+                datasets: [{
+                    label: 'งบประมาณจังหวัดราชบุรี',
+                    data: [2371015585,
+                        2779061600,
+                        2772645120,
+                        1873352547,
+                        1630797319,
+                        2027991941,
+                        1828847241,
+                        2492993463,
+                        1730080213,
+                        3079651326,
+                        3762247547,
+                        5151373508,
+                        6236605080,
+                        2753984010,
+                        5645201160,
+                    ],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx3 = document.getElementById('third-chart').getContext('2d');
+        var thridChart = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม', 'กระทรวงยุติธรรม', 'กระทรวงสาธารณสุข',
+                    'กระทรวงเกษตรและสหกรณ์', 'กระทรวงคมนาคม', 'กระทรวงศึกษาธิการ', 'กระทรวงมหาดไทย'
+                ],
+                datasets: [{
+                    label: 'งบประมาณรวม 15 ปี',
+                    data: [5.596807037, 5.634167473, 8.317129991, 11.11976852, 17.1532942, 21.09387447, 31.08495832
+
+],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
